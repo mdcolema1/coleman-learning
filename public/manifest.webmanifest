@@ -1,0 +1,10 @@
+{
+  "name": "Coleman Family Learning Program",
+  "short_name": "Coleman Learning",
+  "start_url": "/colemankidsgames.github.io/",
+  "scope": "/colemankidsgames.github.io/",
+  "display": "standalone",
+  "background_color": "#087da4",
+  "theme_color": "#087da4",
+  "description": "Coleman Family Learning Program"
+}

@@ -1,0 +1,17 @@
+COLEMAN LEARNING v6.1 - GITHUB PAGES CHECKLIST
+
+Repository: mdcolema1/colemankidsgames.github.io
+Expected URL: https://mdcolema1.github.io/colemankidsgames.github.io/
+
+1. Delete old repository files.
+2. Extract this ZIP on your PC.
+3. Upload the CONTENTS of the extracted folder to the repository root.
+4. Confirm .github/workflows/deploy.yml exists in GitHub.
+5. Confirm src/App.tsx exists in GitHub.
+6. Confirm vite.config.ts exists in GitHub.
+7. Settings > Pages > Source = GitHub Actions.
+8. Commit/upload to main.
+9. Actions > Build and Deploy Coleman Learning > wait for green check.
+10. Settings > Pages > Visit site.
+11. Expected URL includes /colemankidsgames.github.io/ after github.io.
+12. On iPads, open the new URL in Safari before re-adding a Home Screen shortcut.

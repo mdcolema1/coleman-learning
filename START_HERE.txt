@@ -1,0 +1,12 @@
+COLEMAN LEARNING - CLEAN GITHUB START
+
+Repository owner: mdcolema1
+Repository name: coleman-learning
+Expected Pages URL: https://mdcolema1.github.io/coleman-learning/
+
+IMPORTANT
+1. Upload the CONTENTS of this extracted folder to the repository root.
+2. Keep .github/workflows/deploy.yml in that exact path.
+3. GitHub Settings > Pages > Source must be GitHub Actions.
+4. Commit to main.
+5. Open Actions and watch Build and Deploy Coleman Learning.

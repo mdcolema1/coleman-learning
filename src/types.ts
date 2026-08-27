@@ -1,0 +1,10 @@
+export type KidName='Humberto'|'Harmoni'|'Faith'|'Angel'
+export type Subject='Math'|'Reading'|'ShapesColors'|'SightWords'|'DigitalTime'|'Science'|'MasterChallenge'
+export type Visual={kind:'none'}|{kind:'color';value:string}|{kind:'digitalTime';value:string}|{kind:'maskedWord';value:string}|{kind:'equation';value:string}
+export interface Question{id:string;child:KidName;subject:Subject;quiz:number;skill:string;difficulty:number;prompt:string;speak:string;answer:string;choices:string[];hint:string;visual?:Visual}
+export interface AttemptResult{questionId:string;skill:string;firstAttemptCorrect:boolean;eventuallyCorrect:boolean;attempts:number}
+export interface QuizRecord{id:string;child:KidName;subject:Subject;quiz:number;completedAt:number;firstAttemptAccuracy:number;incorrectFirstAttempts:number;earned:number;passedAllowanceRule:boolean;totalQuestions:number}
+export interface SubjectWindowState{completedQuizzes:number[]}
+export interface LearningWindow{startedAt:number;earnings:number;subjects:Partial<Record<Subject,SubjectWindowState>>}
+export interface KidProgress{bank:number;avatar:string;records:QuizRecord[];window:LearningWindow}
+export interface AppState{version:1;kids:Record<KidName,KidProgress>;contrast:'bright'|'dark';preferredVoice?:string}
