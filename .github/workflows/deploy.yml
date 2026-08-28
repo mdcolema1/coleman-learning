@@ -29,8 +29,16 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
       - name: Install dependencies
         run: npm install --no-audit --no-fund
+
+      - name: Validate Coleman Learning
+        run: npm run verify
 
       - name: Build Coleman Learning
         run: npm run build
