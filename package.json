@@ -1,22 +1,27 @@
 {
   "name": "coleman-family-learning",
   "private": true,
-  "version": "6.1.0",
+  "version": "9.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit -p tsconfig.app.json && vite build",
-    "preview": "vite preview --host 0.0.0.0"
+    "preview": "vite preview --host 0.0.0.0",
+    "verify": "node scripts/verify-project.mjs && tsx scripts/audit-questions.ts && tsx scripts/engine-tests.ts",
+    "audit": "tsx scripts/audit-questions.ts",
+    "test": "tsx scripts/engine-tests.ts"
   },
   "dependencies": {
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "phaser": "4.2.1"
   },
   "devDependencies": {
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.5",
     "@vitejs/plugin-react": "6.1.0",
     "typescript": "7.0.2",
+    "tsx": "4.20.6",
     "vite": "8.2.2"
   }
 }

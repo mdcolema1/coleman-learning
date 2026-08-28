@@ -1,0 +1,1 @@
+export const worlds=[{id:1,name:'Ocean Expedition',open:true,icon:'🌊',description:'The active Coleman Learning adventure world.'},...Array.from({length:9},(_,i)=>({id:i+2,name:`World ${i+2}`,open:false,icon:'🔒',description:'Locked. Future expedition content will be planned later.'}))]

@@ -1,10 +1,30 @@
 export type KidName='Humberto'|'Harmoni'|'Faith'|'Angel'
-export type Subject='Math'|'Reading'|'ShapesColors'|'SightWords'|'DigitalTime'|'Science'|'MasterChallenge'
-export type Visual={kind:'none'}|{kind:'color';value:string}|{kind:'digitalTime';value:string}|{kind:'maskedWord';value:string}|{kind:'equation';value:string}
-export interface Question{id:string;child:KidName;subject:Subject;quiz:number;skill:string;difficulty:number;prompt:string;speak:string;answer:string;choices:string[];hint:string;visual?:Visual}
-export interface AttemptResult{questionId:string;skill:string;firstAttemptCorrect:boolean;eventuallyCorrect:boolean;attempts:number}
-export interface QuizRecord{id:string;child:KidName;subject:Subject;quiz:number;completedAt:number;firstAttemptAccuracy:number;incorrectFirstAttempts:number;earned:number;passedAllowanceRule:boolean;totalQuestions:number}
+export type Subject=
+|'Math'|'Reading'|'ShapesColors'|'SightWords'|'DigitalTime'|'Science'|'MasterChallenge'|'DailyReview'|'WeakSkills'|'WeeklyReview'|'MonthlyMastery'
+|'ReadingFluency'|'Vocabulary'|'SentenceBuilder'|'MultiplicationLab'|'DivisionLab'|'Fractions'|'Geometry'|'Geography'|'SpellingBee'|'DailyChallenge'
+|'NumberSense'|'PlaceValue'|'Rounding'|'Estimation'|'Decimals'|'Percentages'|'Measurement'|'Temperature'|'ElapsedTime'|'Budgeting'
+|'Phonics'|'LetterSounds'|'Rhyming'|'CVCWords'|'Grammar'|'Punctuation'|'Capitalization'|'ParagraphSequencing'|'MainIdea'|'Inference'|'CauseEffect'|'SequenceEvents'|'ContextClues'
+|'LifeScience'|'EarthScience'|'PhysicalScience'|'ScientificInvestigation'|'SocialStudies'|'Civics'|'Communities'|'Economics'|'History'|'Typing'|'MemoryMatch'|'Sorting'|'Classification'
+export type Visual={kind:'none'}|{kind:'color';value:string}|{kind:'digitalTime';value:string}|{kind:'maskedWord';value:string}|{kind:'equation';value:string}|{kind:'fraction';numerator:number;denominator:number}|{kind:'geometry';shape:string;values?:number[]}|{kind:'map';value:string}|{kind:'passage';value:string}|{kind:'numberLine';min:number;max:number;marker:number}|{kind:'thermometer';value:number;unit:'F'|'C'}|{kind:'dataTable';headers:string[];rows:string[][]}|{kind:'barChart';labels:string[];values:number[]}|{kind:'science';icon:string;caption?:string}
+export interface Question{id:string;child:KidName;subject:Subject;quiz:number;skill:string;difficulty:number;prompt:string;speak:string;answer:string;choices:string[];hint:string;visual?:Visual;challenge?:boolean;readAloud?:boolean;fluencyText?:string;explanation?:string;prerequisite?:string;reviewIntervalDays?:number;misconceptionTag?:string;contextTag?:string;answerExposureAllowed?:Array<'prompt'|'skill'|'hint'|'visual'>}
+export interface AttemptResult{questionId:string;skill:string;firstAttemptCorrect:boolean;eventuallyCorrect:boolean;attempts:number;difficulty?:number;challenge?:boolean;responseMs?:number;rapidTapCount?:number;hintUsed?:boolean;misconceptionTag?:string}
+export interface QuizRecord{id:string;child:KidName;subject:Subject;quiz:number;completedAt:number;firstAttemptAccuracy:number;incorrectFirstAttempts:number;earned:number;passedAllowanceRule:boolean;totalQuestions:number;xp:number;masteryDelta:number;secondAttemptRecovery?:number;averageResponseMs?:number;challengeCorrect?:number}
 export interface SubjectWindowState{completedQuizzes:number[]}
 export interface LearningWindow{startedAt:number;earnings:number;subjects:Partial<Record<Subject,SubjectWindowState>>}
-export interface KidProgress{bank:number;avatar:string;records:QuizRecord[];window:LearningWindow}
-export interface AppState{version:1;kids:Record<KidName,KidProgress>;contrast:'bright'|'dark';preferredVoice?:string}
+export type MasteryStatus='Learning'|'Developing'|'Proficient'|'Mastered'|'Review Due'
+export interface SkillMastery{skill:string;score:number;attempts:number;firstCorrect:number;lastSeen:number;status:MasteryStatus;successfulSessions:number;masteredAt?:number;nextReviewAt?:number;reviewStage?:number;prerequisites?:string[];subject?:Subject;responseMsAverage?:number}
+export interface SeenQuestion{id:string;seenAt:number;signature?:string}
+export interface Achievement{id:string;earnedAt:number;title:string;icon:string;hidden?:boolean}
+export interface FamilyAchievement{id:string;earnedAt:number;title:string;description:string;icon:string}
+export interface ParentGoal{id:string;text:string;subject?:Subject;target:number;progress:number;reward:number;active:boolean;createdAt:number}
+export interface ParentNote{id:string;text:string;createdAt:number}
+export interface PurchasedItem{id:string;purchasedAt:number}
+export interface Mission{id:string;title:string;description:string;kind:'daily'|'weekly'|'story'|'npc'|'family';target:number;progress:number;rewardXP:number;rewardPearls?:number;completed:boolean;claimed:boolean;subject?:Subject;zoneId?:string}
+export interface JournalEntry{id:string;createdAt:number;title:string;text:string;icon:string;kind:'discovery'|'treasure'|'science'|'story'|'achievement'|'skill'}
+export interface KnowledgeCard{id:string;skill:string;subject?:Subject;title:string;summary:string;icon:string;masteredAt:number;reviewDueAt?:number}
+export interface AdventureProgress{xp:number;level:number;zoneId:string;treasureClaimed:string[];energy:number;pearls:number;shells:number;currentCheckpoint:string;storyChapter:number;completedObjectives:string[];shipwreckRooms:string[];mapFragments:string[];missions:Mission[];journal:JournalEntry[];knowledgeCards:KnowledgeCard[];cabin:{decorations:string[];equippedDecorations:string[];trophies:string[]};aquarium:{creatures:string[];food:number;lastFed?:number};world1Complete:boolean;familyAchievementPoints:number;bossesDefeated:string[];discoveredNpcs:string[];weekendTreasureClaims:string[]}
+export interface KidProgress{bank:number;avatar:string;records:QuizRecord[];window:LearningWindow;mastery:Record<string,SkillMastery>;seen:SeenQuestion[];achievements:Achievement[];goals:ParentGoal[];notes:ParentNote[];purchases:PurchasedItem[];equippedAccessory?:string;equippedTheme?:string;adventure:AdventureProgress;dailyLearningStreak:number;lastLearningDay?:string;personalBests:{accuracy:number;streak:number;questions:number;masteryGain:number};questionCount:number;equippedCompanion?:string;equippedVehicle?:string;equippedFrame?:string;equippedTrail?:string}
+export interface AllowanceRules{basePerFirstCorrect:number;streakBonus:number;streakEvery:number;passThreshold:number;incorrectDeduction:number;challengeBonus:number;progressiveStreak:boolean;maxStreakTier:number}
+export interface AdventureSettings{music:number;effects:number;voice:number;graphics:'low'|'standard'|'enhanced';reducedEffects:boolean}
+export interface ParentSettings{sessionTimeoutMinutes:number;backupReminderDays:number;lastBackupAt?:number;parentPinHash?:string;assignedDifficulty:Partial<Record<KidName,Partial<Record<Subject,'easier'|'normal'|'harder'|'adaptive'>>>>}
+export interface AppState{version:4;kids:Record<KidName,KidProgress>;contrast:'bright'|'dark';preferredVoice?:string;allowanceRules:AllowanceRules;parentSettings:ParentSettings;adventureSettings:AdventureSettings;lastSeenVersion?:string;appInstalledAt:number;lastMigrationAt?:number;familyAchievements:FamilyAchievement[];lastMissionRefresh?:string}
