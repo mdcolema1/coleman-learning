@@ -1,0 +1,7 @@
+START HERE - COLEMAN LEARNING v10
+
+1. Upload the CONTENTS of this package to the root of mdcolema1/coleman-learning.
+2. Preserve folders exactly, especially src, public, scripts, and .github/workflows.
+3. Do not flatten folders.
+4. GitHub Actions will install dependencies, audit content/questions, run engine tests, build, and deploy Pages.
+5. After deployment, confirm the app shows v10.0.0 in the lower-right corner.
