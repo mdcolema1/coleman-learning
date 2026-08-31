@@ -1,0 +1,10 @@
+{
+  "name": "Coleman Family Learning Program",
+  "short_name": "Coleman Learning",
+  "start_url": "/coleman-learning/",
+  "scope": "/coleman-learning/",
+  "display": "standalone",
+  "background_color": "#087da4",
+  "theme_color": "#087da4",
+  "description": "Coleman Family Learning Adventure v11 \u2014 full-screen Ocean Expedition"
+}

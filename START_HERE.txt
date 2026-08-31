@@ -1,0 +1,8 @@
+COLEMAN LEARNING v11
+
+1. Extract this ZIP.
+2. Upload the extracted contents to the root of the GitHub repository.
+3. Ensure .github/workflows/deploy.yml is present.
+4. GitHub Actions will validate, build, and deploy.
+5. The deployed build tag should read v11.0.0.
+6. Child flow: choose explorer → full-screen Ocean Expedition. No old World Map/World selector is shown.

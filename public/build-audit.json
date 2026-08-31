@@ -1,0 +1,17 @@
+{
+  "version": "11.0.0",
+  "world1Only": true,
+  "futureWorldsHiddenFromChildUI": true,
+  "worlds2to10LockedInBackend": true,
+  "answerLeakRegressionChecks": true,
+  "harmoniReadingPriorityOneCompletion": true,
+  "generatedQuestionAudit": "scripts/audit-questions.ts",
+  "engineTests": "scripts/engine-tests.ts",
+  "offlineServiceWorker": true,
+  "localSaveSnapshots": true,
+  "bossMasteryTrials": true,
+  "familyAchievements": true,
+  "regionProgressionGate": "level+exploration+boss-when-required",
+  "primaryChildExperience": "full-screen-html5-phaser-expedition",
+  "oldWorldSelectorUI": false
+}
