@@ -1,8 +1,10 @@
-# Coleman Family Learning Program v9
+# Coleman Family Learning Program v10
 
 GitHub Pages / React + TypeScript + Vite + Phaser learning-adventure build.
 
-## v9 highlights
+## v10 highlights
+- New HTML5 / Phaser World 1 visual experience with layered underwater environments, touch swimming, constructed wrecks, discovery markers, and game HUD.
+- Responsive iPad/desktop adventure layout that preserves low-graphics and reduced-effects modes.
 - World 1 is the only playable world; Worlds 2-10 remain locked placeholders.
 - World 1 region progression requires Adventure Level + current-region exploration; boss regions also require a Master Challenge trial.
 - Deeper shipwreck room exploration, NPC discoveries, deterministic treasure, missions, journal, cabin, aquarium, and Knowledge Bank.
